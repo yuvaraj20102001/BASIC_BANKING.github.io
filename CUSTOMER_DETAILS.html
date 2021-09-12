@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="CUSTOMER_DETAILS.css">
+    <title>CUSTOMER DETAILS</title>
+
+    <style>
+        h1 {
+          text-decoration: underline overline;
+        }
+    </style>        
+</head>
+
+<body class="jumbotron">
+    <nav class="navbar navbar-dark navbar-expand-sm fixed-top">
+        
+        <div class="dropdown">
+           
+
+            <button class="dropbtn"><i class="fa fa-bars" aria-hidden="true"></i></button>
+            
+            <div class="dropdown-content">
+            <a href="index.html"><span class="fa fa-home fa-lg"></span> Home</a>
+            <a href="CUSTOMER_DETAILS.html"><span class="fa fa-address-card fa-lg"></span> Our Customers</a>
+            <a href="ABOUTUS.html"><span class="fa fa-info fa-lg"></span> About Us</a>
+            
+        </div>
+    </div>
+        
+    </nav>
+    
+
+    <hr>
+    <div class="my-info text-center">
+
+        
+        <button class="btn btn-light" data-toggle="modal" data-target="#sendMoney">Send Money</button>
+        <a class="btn btn-light" href="history.html" data-toggle="modal" data-target="#transactionHistory">See All Transactions</a>
+    </div>
+    <br>
+
+    <!-- Modal send money -->
+    <div class="modal fade" id="sendMoney" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Send Money</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="">
+                            <div class="input-group mb-3">
+                            <input type="text" id="SenderName" class="form-control" placeholder="Sender's Username"
+                                aria-label="Sender's username" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="basic-addon2">@gmail.com</span>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="text" id="RecieverName" class="form-control" placeholder="Recipient's Username"
+                                aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="basic-addon2">@gmail.com</span>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Rs</span>
+                            </div>
+                            <input type="text" id="AmountToSend" class="form-control" placeholder=" Enter Amount for Transfer"
+                                aria-label="Amount">
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" onclick="TransferMoney()" class="btn btn-active" data-dismiss="modal">Send
+                        Money</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal transaction History-->
+    <div class="modal fade" id="transactionHistory" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Transaction History</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ol id="transaction-history-body">
+
+                    </ol>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- table  -->
+    <div class="container">
+        <div class="table-responsive"><br>
+            <h1 style="font-family:Arial" align="center" ><strong><i>NUMBER OF TRANSACTIONS</i></strong></h1>
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr class="table-success">
+                        <th scope="col"><i>S. no</i></th>
+                        <th scope="col"><i>Transaction ID</i></th>
+                        <th scope="col"><i>Name
+                        </i></th>
+                        <th scope="col"><i>E-mail ID</i></th>
+                        <th scope="col"><i>Total Amount</i></th>
+                        <th scope="col"><i>No. of Transactions</i></th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="table-light">
+                        <td scope="row">1.</td>
+                        <td>
+                            <p id="Transaction ID">SPI12345890013</p>
+                        </td>
+                        <td>rajesh</td>
+                        <td>rajesh@gmail.com</td>
+                        
+
+
+                        <td>
+                            <p id="Total Amounts">Rs.500</p>
+                        </td>
+                        <td>8</td>
+                    </tr>
+                    <tr class="table-active">
+                        <td scope="row">2.</td>
+                        <td>
+                            <p id="Transaction ID">DBI10000213546</p>
+                        </td>
+                        <td>tarunv</td>
+                        <td>tarunv@gmail.com</td>
+                        <td>
+                            <p id="Total Amounts">Rs.10000</p>
+                        </td>
+                        <td>5</td>
+                    </tr>
+                    <tr class="table-light">
+                        <td scope="row">3.</td>
+                         <td>
+                            <p id="Transaction ID">SBI10258976300</p>
+                        </td>
+                        <td>rahul</td>
+                        <td>rahul@gmail.com</td>
+                        <td>
+                            <p id="Total Amounts">Rs.50000</p>
+                        </td>
+                        <td>10</td>
+                    </tr>
+                    <tr class="table-active">
+                        <td scope="row">4.</td>
+                         <td>
+                            <p id="Transaction ID">BOI20001500791</p>
+                        </td>
+                        <td>Raj</td>
+                        <td>raj58@gmail.com</td>
+                        <td>
+                            <p id="Total Amounts">Rs.8000</p>
+                        </td>
+                        <td>10</td>
+                    </tr>
+                    <tr class="table-light">
+                        <td scope="row">5.</td>
+                         <td>
+                            <p id="Transaction ID">IDFC10000200146</p>
+                        </td>
+                        <td>ramkumar</td>
+                        <td>ramkumar78@gmail.com</td>
+                        <td>
+                            <p id="Total Amounts">Rs.5000</p>
+                        </td>
+                        <td>6</td>
+                    </tr>
+                    <tr class="table-active">
+                        <td scope="row">6.</td>
+                        <td>
+                            <p id="Transaction ID">RBI20001500791</p>
+                        </td>
+                        <td>shivani</td>
+                        <td>shivani48@gmail.com</td>
+                        <td>
+                            <p id="Total Amounts">Rs.10000</p>
+                        </td>
+                        <td>10</td>
+                    </tr>
+                    <tr class="table-light">
+                        <td scope="row">7.</td>
+                        <td>
+                            <p id="Transaction ID">MOD20001500791</p>
+                        </td>
+                        <td>narendarmd</td>
+                        <td>narendarmd@gmail.com</td>
+                        <td>
+                            <p id="Total Amounts">Rs.100000</p>
+                        </td>
+                        <td>12</td>
+                    </tr>
+                    <tr class="table-active">
+                        <td scope="row">8.</td>
+                        <td>
+                            <p id="Transaction ID">TPIO2000777745</p>
+                        </td>
+                        <td>shivakumar</td>
+                        <td>shivakumar585@gmail.com</td>
+                        <td>
+                            <p id="Total Amounts">Rs.35000</p>
+                        </td>
+                        <td>16</td>
+                    </tr>
+                    <tr class="table-light">
+                        <td scope="row">9.</td>
+                        <td>
+                            <p id="Transaction ID">RTP2000777791</p>
+                        </td>
+                        <td>ranjana</td>
+                        <td>ranjana@gmail.com</td>
+                        <td>
+                            <p id="Total Amounts">Rs.12000</p>
+                        </td>
+                        <td>15</td>
+                    </tr>
+                    <tr class="table-active">
+                        <td scope="row">10.</td>
+                        <td>
+                            <p id="Transaction ID">TMO2000150451</p>
+                        </td>
+                        <td>ravichandran</td>
+                        <td>ravichandran@gmail.com</td>
+                        <td>
+                            <p id="Total Amounts">Rs.1000</p>
+                        </td>
+                        <td>10</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </section>
+
+    
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</body>
+</html
